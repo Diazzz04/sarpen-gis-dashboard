@@ -1,0 +1,2492 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 80px;
+  min-width: 80px;
+  height: 100vh;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin-bottom: 28px;
+  font-size: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.logo::before {
+  content: "S";
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.logo p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.menu-title {
+  font-size: 11px;
+  color: #9ca3af;
+  padding: 0 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.menu-item {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #cbd5e1;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.menu-item span {
+  display: none;
+}
+
+.menu-item.active {
+  background: #2563eb;
+  color: white;
+}
+
+.menu-item:hover {
+  background: #1f2937;
+  color: white;
+}
+
+.menu-item.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.main {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  height: 100vh;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  height: 50px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.header-title p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  padding: 9px 12px;
+  border-radius: 8px;
+  width: 260px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+
+.content {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+
+.stat-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 2px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  min-height: 220px;
+  box-sizing: border-box;
+}
+
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.stat-card-title {
+  color: #111827;
+  font-size: 50px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.stat-card-value {
+  margin-top: 8px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stat-card-description {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+
+.stat-card svg {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   MAP SECTION
+========================= */
+
+.map-section {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  width: 100%;
+}
+
+.map-header {
+  min-height: 64px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.map-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #172033;
+}
+
+.map-header p {
+  margin: 3px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.map-placeholder {
+  height: 550px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .logo h2,
+  .logo p,
+  .menu-title,
+  .menu-item span {
+    display: none;
+  }
+
+
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box {
+    width: 180px;
+  }
+}
+
+/* =========================
+   LEAFLET MAP
+========================= */
+
+.map-container {
+  width: 100%;
+  height: calc(100vh - 150px) !important;
+  min-height: 700px;
+  position: relative;
+}
+
+.map-container .leaflet-container {
+  width: 100%;
+  height: 100% !important;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.leaflet-popup-content {
+  font-size: 13px;
+}
+
+.leaflet-popup-content p {
+  margin: 6px 0;
+}
+
+/* =========================
+   FILTER SECTION
+========================= */
+
+.filter-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: end;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.filter-item label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.filter-item select {
+  min-width: 190px;
+  height: 38px;
+  padding: 0 10px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: white;
+  color: #1f2937;
+
+  outline: none;
+}
+
+.filter-item select:focus {
+  border-color: #2563eb;
+}
+
+.reset-button {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: white;
+  color: #374151;
+
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background: #f3f4f6;
+}
+
+/* =========================
+   RESULT INFO
+========================= */
+
+.result-info {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.result-info strong {
+  color: #111827;
+}
+
+/* =========================
+   SITE POPUP
+========================= */
+
+.site-popup {
+  min-width: 280px;
+}
+
+.site-popup h3 {
+  margin: 0 0 15px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.popup-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 7px 0;
+
+  border-bottom: 1px solid #f0f0f0;
+
+  font-size: 12px;
+}
+
+.popup-row span {
+  color: #6b7280;
+}
+
+.popup-row strong {
+  color: #111827;
+  text-align: right;
+}
+
+.popup-coordinate {
+  margin-top: 12px;
+  padding-top: 10px;
+
+  border-top: 1px solid #e5e7eb;
+
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* =========================
+   LEAFLET CLUSTER
+========================= */
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background: rgba(37, 99, 235, 0.25);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+/* =========================================
+   MARKER CLUSTER
+   ========================================= */
+
+.marker-cluster {
+  background: rgba(37, 99, 235, 0.22) !important;
+}
+
+.marker-cluster div {
+  background: #2563eb !important;
+
+  color: white !important;
+
+  font-weight: 600;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+/* =========================
+   DATA TABLE
+========================= */
+
+.data-table-section {
+  width: 100%;
+  min-height: max-content;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-toolbar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.table-toolbar h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.table-toolbar p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.table-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  padding: 9px 12px;
+  border-radius: 8px;
+  width: 280px;
+}
+
+.table-search input {
+  color:#111827;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1250px;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+td {
+  padding: 12px 14px;
+  font-size: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #374151;
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable:hover {
+  color: #2563eb;
+}
+
+.sortable {
+  display: table-cell;
+}
+
+.site-name {
+  font-weight: 600;
+  color: #111827;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-done {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 11px;
+}
+
+.status-other {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 11px;
+}
+
+.table-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.action-button {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background: white;
+  color: #4b5563;
+
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination {
+  padding: 15px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.pagination-info {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.pagination-buttons button {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background: white;
+  cursor: pointer;
+}
+
+.pagination-buttons button:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.empty-table {
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+}
+
+/* =========================
+   DETAIL MODAL
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+}
+
+.detail-modal {
+  width: min(750px, 100%);
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.modal-header p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.modal-header button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #f3f4f6;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.detail-grid {
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+.detail-grid > div {
+  padding: 13px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-grid span {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.detail-grid strong {
+  font-size: 13px;
+  color: #111827;
+}
+
+.modal-map-button {
+  margin: 0 20px 20px;
+
+  width: calc(100% - 40px);
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.modal-map-button:hover {
+  background: #1d4ed8;
+}
+
+/* ========================================
+   STATISTICS
+======================================== */
+
+.statistics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+}
+
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+
+.chart-header h2 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  color: #172033;
+}
+
+
+.chart-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+
+.chart-container {
+  width: 100%;
+  height: 350px;
+}
+
+/* =========================================
+   TAHAP 15 - GIS MAP DOMINANT LAYOUT
+   ========================================= */
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.map-section {
+  width: 100%;
+}
+
+.map-container {
+  width: 100%;
+  height: calc(100vh - 150px) !important;
+  min-height: 700px;
+}
+
+.map-container .leaflet-container {
+  width: 100%;
+  height: 100% !important;
+}
+
+/* Sidebar compact */
+.sidebar {
+  width: 78px;
+  min-width: 78px;
+}
+
+.sidebar .menu-item {
+  justify-content: center;
+  padding: 0;
+}
+
+.sidebar .menu-item span {
+  display: none;
+}
+
+/* Main content */
+
+
+/* Map header */
+.map-header {
+  min-height: 64px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   TAHAP 15B - GIS APPLICATION LAYOUT
+   ========================================= */
+
+
+.gis-map .map-section,
+.gis-map .map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.gis-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   GIS HEADER
+   ========================= */
+
+.gis-header {
+  height: 54px;
+  min-height: 54px;
+  flex-shrink: 0;
+
+  padding: 8px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 1100;
+}
+
+.gis-header h1 {
+  margin: 0;
+  color: #172033;
+  opacity: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.gis-header p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.gis-header-info {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* =========================
+   MAP WRAPPER
+   ========================= */
+
+
+.gis-map {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.gis-map .map-section {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gis-map .map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.gis-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   FLOATING FILTER
+   ========================= */
+
+.gis-filter-panel {
+  position: absolute;
+  z-index: 1000;
+  top: 14px;
+  right: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: rgba(255, 255, 255, 0.96);
+  padding: 8px;
+  border-radius: 10px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.15);
+
+  backdrop-filter: blur(6px);
+}
+
+.gis-filter-panel select {
+  height: 38px;
+  min-width: 145px;
+
+  border: 1px solid #dce1e7;
+  border-radius: 7px;
+
+  background: white;
+  color: #334155;
+
+  padding: 0 32px 0 11px;
+
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+
+.gis-filter-panel select:focus {
+  border-color: #2563eb;
+}
+
+.gis-reset-button {
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dce1e7;
+  border-radius: 7px;
+
+  background: white;
+  color: #475569;
+
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.gis-reset-button:hover {
+  background: #f8fafc;
+}
+
+/* =========================
+   COORDINATE INFO
+   ========================= */
+
+.gis-coordinate-info {
+  position: absolute;
+  z-index: 1000;
+  top: 14px;
+  left: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.15);
+
+  color: #334155;
+  font-size: 13px;
+
+  backdrop-filter: blur(6px);
+}
+
+.gis-coordinate-info svg {
+  color: #2563eb;
+}
+
+/* =========================
+   LEAFLET
+   ========================= */
+
+.gis-map .leaflet-control-zoom {
+  margin-top: 70px !important;
+  margin-left: 18px !important;
+}
+
+.gis-map .leaflet-control-attribution {
+  font-size: 10px;
+}
+
+/* =========================================
+   TAHAP 15D - GIS LEGEND
+   ========================================= */
+
+.map-legend {
+  position: absolute;
+
+  left: 20px;
+  bottom: 10px;
+
+  z-index: 1000;
+
+  width: 120px;
+  height: auto;
+
+  padding: 16px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 16px rgba(15, 23, 42, 0.16);
+
+  backdrop-filter: blur(8px);
+
+  box-sizing: border-box;
+}
+
+.map-legend-title {
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #172033;
+}
+
+.map-legend-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+
+
+  font-size: 13px;
+
+  color: #475569;
+}
+
+.map-legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #64748b;
+
+  flex-shrink: 0;
+}
+
+.gis-coordinate-info {
+  position: absolute;
+
+  top: 14px;
+  left: 18px;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 3px 12px rgba(15, 23, 42, 0.15);
+
+  color: #334155;
+
+  font-size: 13px;
+
+  backdrop-filter: blur(6px);
+}
+
+.gis-coordinate-info strong {
+  color: #172033;
+  font-weight: 700;
+}
+
+.gis-filter-panel {
+  position: absolute;
+
+  top: 14px;
+  right: 18px;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.14);
+
+  backdrop-filter: blur(8px);
+}
+
+.gis-filter-panel select {
+  height: 36px;
+
+  min-width: 135px;
+
+  padding: 0 30px 0 10px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 7px;
+
+  background: white;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.gis-filter-panel select:hover {
+  border-color: #cbd5e1;
+}
+
+.gis-filter-panel select:focus {
+  border-color: #2563eb;
+}
+
+.gis-reset-button {
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 0 11px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 7px;
+
+  background: white;
+
+  color: #475569;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.gis-reset-button:hover {
+  background: #f8fafc;
+}
+
+.gis-map .leaflet-control-zoom {
+  margin-left: 16px !important;
+  margin-top: 16px !important;
+}
+
+.gis-map .leaflet-control-zoom a {
+  width: 34px !important;
+  height: 34px !important;
+
+  line-height: 34px !important;
+
+  font-size: 18px !important;
+}
+
+@media (max-width: 1100px) {
+  .gis-filter-panel {
+    right: 12px;
+  }
+
+  .gis-filter-panel select {
+    min-width: 115px;
+  }
+
+  .map-legend {
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 58px;
+    min-width: 58px;
+  }
+
+  .gis-header {
+    padding: 0 14px;
+  }
+
+  .gis-header h1 {
+    font-size: 17px;
+  }
+
+  .gis-filter-panel {
+    left: 12px;
+    right: 12px;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .gis-filter-panel select {
+    min-width: 130px;
+  }
+
+  .gis-coordinate-info {
+    left: 12px;
+  }
+
+  .map-legend {
+    width: 150px;
+  }
+}
+
+/* =========================================
+   DASHBOARD PAGE
+   ========================================= */
+
+.dashboard-page {
+  width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.dashboard-header {
+  background: white;
+
+  padding: 20px 22px;
+
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #172033;
+}
+
+.dashboard-header p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+
+  color: #64748b;
+}
+
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dashboard-grid > .dashboard-card {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+
+.dashboard-chart {
+  width: 100%;
+  min-width: 0;
+  height: 300px;
+  margin-top: 15px;
+}
+
+
+/* Diagram donut berdasarkan tahun */
+.dashboard-donut-chart {
+  width: 100%;
+  height: 260px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dashboard-donut-chart .recharts-responsive-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+.dashboard-card {
+  background: white;
+
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.dashboard-card-header h2 {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: #172033;
+}
+
+.dashboard-card-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+
+  color: #64748b;
+}
+
+.dashboard-chart {
+  width: 100%;
+
+  margin-top: 15px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.gis-map .leaflet-control-zoom {
+  position: absolute !important;
+
+  left: 16px !important;
+  top: 16px !important;
+
+  margin: 0 !important;
+
+  z-index: 1000;
+}
+
+.gis-map .leaflet-control-zoom a {
+  width: 34px !important;
+  height: 34px !important;
+
+  line-height: 34px !important;
+
+  font-size: 18px !important;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body:has(.gis-page) {
+  overflow: hidden;
+}
+
+.gis-map .leaflet-top.leaflet-left {
+  top: 75px;
+  left: 16px;
+  z-index: 1000;
+}
+
+.gis-map .leaflet-control-zoom {
+  margin: 0;
+}
+
+.gis-map .leaflet-control-zoom a {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 20px;
+}
+
+/* =========================================
+   GIS - FULL SCREEN TANPA SCROLL
+   ========================================= */
+
+.content:has(.gis-page) {
+  padding: 0;
+  overflow: hidden;
+}
+
+.gis-page {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.gis-header {
+  flex: 0 0 54px;
+  height: 54px;
+  min-height: 54px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 20px;
+
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gis-map-wrapper {
+  position: relative;
+
+  flex: 1 1 auto;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.gis-map {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.gis-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.gis-header,
+.gis-header h1,
+.gis-header p {
+  opacity: 1;
+}
+
+.gis-header h1 {
+  color: #172033 !important;
+}
+
+/* =========================
+   PERBAIKAN SCROLL DASHBOARD
+========================= */
+
+.content:has(.dashboard-page) {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
+}
+
+.dashboard-page {
+  width: 100%;
+  min-height: max-content;
+  height: auto;
+
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   SCROLL HALAMAN DATA SITE
+========================= */
+
+.content:has(.data-page) {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 20px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.data-page {
+  width: 100%;
+  min-height: max-content;
+  height: auto;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   HEADER RIGHT
+======================================== */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* ========================================
+   PROFILE MENU
+======================================== */
+
+.profile-menu {
+  position: relative;
+}
+
+
+/* PROFILE BUTTON */
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  min-width: 190px;
+
+  padding: 7px 10px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.profile-button:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+
+.profile-button-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
+
+.profile-button-info strong {
+  max-width: 125px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #172033;
+}
+
+
+.profile-button-info span {
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color: #64748b;
+
+  text-transform: capitalize;
+}
+
+
+.profile-chevron {
+  transition: transform 0.2s;
+}
+
+
+.profile-chevron.open {
+  transform: rotate(180deg);
+}
+
+
+/* ========================================
+   PROFILE DROPDOWN
+======================================== */
+
+.profile-dropdown {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 280px;
+
+  padding: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.12);
+
+  z-index: 3000;
+
+  box-sizing: border-box;
+}
+
+
+/* DROPDOWN HEADER */
+
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.profile-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  flex-shrink: 0;
+}
+
+
+.profile-dropdown-header > div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.profile-dropdown-header strong {
+  font-size: 14px;
+
+  color: #172033;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.profile-dropdown-header span {
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #64748b;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* DIVIDER */
+
+.profile-divider {
+  width: 100%;
+
+  height: 1px;
+
+  background: #e5e7eb;
+
+  margin: 14px 0;
+}
+
+
+/* PROFILE DETAIL */
+
+.profile-detail {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 12px;
+}
+
+
+.profile-detail span {
+  color: #64748b;
+}
+
+
+.profile-detail strong {
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+
+/* LOGOUT */
+
+.logout-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.logout-button:hover {
+  background: #fee2e2;
+}
+
+.table-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-site-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 14px;
+  background: #2563eb;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-site-button:hover {
+  background: #1d4ed8;
+}
+
+.crud-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.crud-modal {
+  width: min(900px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.crud-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.crud-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #172033;
+}
+
+.crud-modal-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.crud-close-button {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+}
+
+.crud-form {
+  padding: 22px;
+}
+
+.crud-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.crud-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.crud-field-full {
+  grid-column: 1 / -1;
+}
+
+.crud-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.crud-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  outline: none;
+  font-size: 13px;
+  color: #172033;
+  color: #ffffff;
+}
+
+.crud-field input:focus {
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.crud-modal-footer {
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.crud-cancel-button,
+.crud-save-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.crud-cancel-button {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.crud-save-button {
+  background: #2563eb;
+  color: white;
+}
+
+.crud-cancel-button:disabled,
+.crud-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .crud-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crud-field-full {
+    grid-column: auto;
+  }
+}
+
+.auth-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.auth-success svg {
+  color: #16a34a;
+}
+
+.auth-success h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #172033;
+}
+
+.auth-success p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.auth-back-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.auth-back-button:hover {
+  text-decoration: underline;
+}
+
+.crud-form select {
+  color: #ffffff;
+  background: #3a3a3a;
+}
+
+.crud-form select option {
+  color: #172033;
+  background: #ffffff;
+}
+
+.dashboard-card-header {
+  margin-bottom: 1px;
+}
+
+.dashboard-card-header h2 {
+  margin-bottom: 1px;
+}
+
+.dashboard-card-header p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.dashboard-donut-chart {
+  height: 200px;
+  width: 300px;
+  margin-top: 1px;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   DASHBOARD REDESIGN - SESUAI MOCKUP
+   ========================================= */
+
+/* Baris atas: 3 kartu statistik + grafik donat */
+.content:has(.dashboard-page) .stats {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(300px, 1.5fr);
+  gap: 12px;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* Kartu statistik */
+.content:has(.dashboard-page) .stat-card {
+  min-width: 0;
+  min-height: 116px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content:has(.dashboard-page) .stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.07);
+}
+
+/* Lingkaran ikon */
+.content:has(.dashboard-page) .stat-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.content:has(.dashboard-page) .stat-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Kartu pertama: Total Site */
+.content:has(.dashboard-page) .stat-card:nth-child(1) {
+  background: linear-gradient(145deg, #ffffff, #f5f9ff);
+  border-color: #dbeafe;
+}
+
+.content:has(.dashboard-page) .stat-card:nth-child(1) .stat-icon {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+/* Kartu kedua: Total Perangkat */
+.content:has(.dashboard-page) .stat-card:nth-child(2) {
+  background: linear-gradient(145deg, #ffffff, #f0fdf8);
+  border-color: #bcefe0;
+}
+
+.content:has(.dashboard-page) .stat-card:nth-child(2) .stat-icon {
+  background: #dcfceF;
+  color: #059669;
+}
+
+/* Kartu ketiga: Total SBU */
+.content:has(.dashboard-page) .stat-card:nth-child(3) {
+  background: linear-gradient(145deg, #ffffff, #fff8ef);
+  border-color: #fed7aa;
+}
+
+.content:has(.dashboard-page) .stat-card:nth-child(3) .stat-icon {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+/* Label dan angka statistik */
+.content:has(.dashboard-page) .stat-card > div:last-child {
+  min-width: 0;
+}
+
+.content:has(.dashboard-page) .stat-card span {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.content:has(.dashboard-page) .stat-card strong {
+  display: block;
+  margin-top: 4px;
+  color: #172033;
+  font-size: clamp(20px, 1.7vw, 27px);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.content:has(.dashboard-page) .stat-card br {
+  display: none;
+}
+
+/* Kartu grafik donat di baris atas */
+.content:has(.dashboard-page) .stats > .dashboard-card {
+  min-width: 0;
+  min-height: 116px;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.content:has(.dashboard-page) .stats > .dashboard-card
+.dashboard-card-header {
+  margin: 0;
+  text-align: left;
+}
+
+.content:has(.dashboard-page) .stats > .dashboard-card
+.dashboard-card-header h2 {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Area donat: isi seluruh lebar kartu */
+.content:has(.dashboard-page) .dashboard-donut-chart {
+  width: 100%;
+  height: 105px;
+  min-width: 0;
+  margin-top: 4px;
+  overflow: visible;
+}
+
+/* Grafik batang SBU memenuhi lebar dashboard */
+.content:has(.dashboard-page) .dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.content:has(.dashboard-page) .dashboard-grid > .dashboard-card {
+  width: 100%;
+  min-width: 0;
+  padding: 16px 18px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.content:has(.dashboard-page) .dashboard-grid
+.dashboard-card-header {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.content:has(.dashboard-page) .dashboard-grid
+.dashboard-card-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #172033;
+}
+
+.content:has(.dashboard-page) .dashboard-grid
+.dashboard-card-header p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Tinggi grafik batang */
+.content:has(.dashboard-page) .dashboard-grid .dashboard-chart {
+  width: 100%;
+  height: 310px;
+  min-width: 0;
+  margin-top: 8px;
+}
+
+/* Legenda dan teks grafik */
+.content:has(.dashboard-page) .dashboard-chart .recharts-legend-item-text {
+  color: #475569;
+  font-size: 12px;
+}
+
+.content:has(.dashboard-page) .dashboard-chart .recharts-cartesian-axis-tick-value {
+  fill: #64748b;
+  font-size: 11px;
+}
+
+/* Tablet dan laptop dengan lebar lebih kecil */
+@media (max-width: 1100px) {
+  .content:has(.dashboard-page) .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content:has(.dashboard-page) .stats > .dashboard-card {
+    grid-column: 1 / -1;
+  }
+
+  .content:has(.dashboard-page) .dashboard-donut-chart {
+    height: 155px;
+  }
+}
+
+/* Ponsel */
+@media (max-width: 600px) {
+  .content:has(.dashboard-page) {
+    padding: 12px;
+  }
+
+  .content:has(.dashboard-page) .dashboard-page {
+    gap: 12px;
+  }
+
+  .content:has(.dashboard-page) .stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .content:has(.dashboard-page) .stats > .dashboard-card {
+    grid-column: auto;
+  }
+
+  .content:has(.dashboard-page) .stat-card {
+    min-height: 88px;
+    padding: 14px;
+  }
+
+  .content:has(.dashboard-page) .dashboard-donut-chart {
+    height: 175px;
+  }
+
+  .content:has(.dashboard-page) .dashboard-grid > .dashboard-card {
+    padding: 14px 10px;
+  }
+
+  .content:has(.dashboard-page) .dashboard-grid .dashboard-chart {
+    height: 290px;
+  }
+}
